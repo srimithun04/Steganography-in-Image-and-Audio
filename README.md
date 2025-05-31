@@ -1,5 +1,4 @@
 # Steganography-in-Image-and-Audio
-# Steganography Master: Hide Secrets in Plain Sight
 
 ## 👋 Introduction
 
@@ -26,12 +25,10 @@ Steganography Master is a web app for hiding and revealing secret messages in im
 * Python 3.x, Flask, OpenCV-Python, NumPy
 
 ### Installation & Setup
-
-1.  **Clone:** `git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git) && cd YOUR_REPOSITORY_NAME`
-2.  **Venv (Recommended):** `python -m venv venv && source venv/bin/activate` (or `venv\Scripts\activate` on Windows)
-3.  **Install:** `pip install Flask opencv-python numpy`
-4.  **Run:** `python app.py`
-5.  Access at `http://127.0.0.1:5000/`.
+1.  **Venv (Recommended):** `python -m venv venv && source venv/bin/activate` (or `venv\Scripts\activate` on Windows)
+2.  **Install:** `pip install Flask opencv-python numpy`
+3.  **Run:** `python app.py`
+4.  Access at `http://127.0.0.1:5000/`.
 
 ## 📁 Project Structure
 
@@ -57,8 +54,7 @@ This project demonstrates LSB steganography and serves as an educational resourc
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! See the [issues page](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME/issues).
+Contributions, issues, and feature requests are welcome! See the [issues page](https://github.com/srimithun04/Steganography-in-Image-and-Audio/issues).
 
 ---
 
-*Remember to replace `YOUR_USERNAME/YOUR_REPOSITORY_NAME` with your actual GitHub username and repository name in the clone URL and issues link.*
