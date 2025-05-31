@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoded Message - SecureHide</title>
+    <link rel="stylesheet" href="static/css/result.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Secure<span>Hide</span></div>
+            <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme">
+                ☀️ </button>
+        </nav>
+    </header>
+
+    <main class="result-container">
+        <h1>Decoded Message</h1>
+        <p>{{ decoded_message }}</p> <a href="/index" class="back-link">Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> SecureHide Tools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggleBtn.textContent = '🌙'; // Moon for light theme
+        } else {
+            themeToggleBtn.textContent = '☀️'; // Sun for dark theme
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            let theme = 'dark';
+            if (body.classList.contains('light-theme')) {
+                theme = 'light';
+                themeToggleBtn.textContent = '🌙';
+            } else {
+                themeToggleBtn.textContent = '☀️';
+            }
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+</html>
