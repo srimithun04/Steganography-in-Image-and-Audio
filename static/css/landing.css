@@ -1,0 +1,283 @@
+       /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #0d0d0d; /* Dark background - very dark grey / off-black */
+            --secondary-color: #1a1a1a; /* Slightly lighter dark for elements */
+            --accent-color: #4A90E2; /* Vibrant Blue */
+            --text-color: #e0e0e0; /* Light grey text */
+            --text-darker: #b0b0b0; /* Darker grey for less emphasis */
+            --highlight-color: #61DAFB; /* Lighter Cyan/Blue for hover/active */
+            --card-bg: #232931; /* Dark card background */
+            --border-color: #393E46; /* Darker border */
+            --box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15); /* Blueish shadow */
+            --box-shadow-hover: 0 6px 20px rgba(74, 144, 226, 0.25); /* Stronger blueish shadow on hover */
+            --font-primary: 'Roboto', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            --footer-height: 5rem; /* Approximate footer height for padding */
+            --header-height: 60px; /* Reduced header height */
+        }
+
+        /* --- Dark Theme (default) --- */
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content vertically for front page */
+            min-height: 100vh;
+            padding-top: var(--header-height); /* Space for fixed header */
+            padding-bottom: var(--footer-height); /* Space for fixed footer */
+            box-sizing: border-box;
+        }
+
+        /* --- Light Theme --- */
+        body.light-theme {
+            --primary-color: #f0f2f5; /* Light grey background */
+            --secondary-color: #ffffff; /* White for elements */
+            --accent-color: #007bff; /* Standard Blue for light theme */
+            --text-color: #212529; /* Dark text for light theme */
+            --text-darker: #495057; /* Slightly lighter dark text */
+            --highlight-color: #0056b3; /* Darker blue for hover on light theme */
+            --card-bg: #ffffff; /* White card background */
+            --border-color: #dee2e6; /* Light border */
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --box-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- General Elements --- */
+        h1 {
+            font-family: var(--font-secondary);
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 3rem; /* Larger for front page main title */
+            animation: fadeInDown 1s ease-out;
+        }
+        body.light-theme h1 {
+            color: var(--accent-color); /* Ensure it uses the light theme accent */
+        }
+
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--highlight-color);
+        }
+        
+        /* Main content wrapper to ensure it's a flex item if body structure changes */
+        /* This main tag is the direct child of body */
+
+
+        /* --- Front Page Container Specific Styling --- */
+        .front-page-container { /* This is the <main> element */
+            max-width: 500px; 
+            width: 80%;       
+            margin: 2rem auto; /* Reduced top/bottom margin to allow more flexible centering by body */
+            padding: 2.5rem;   
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-hover); 
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.2s;
+            opacity: 0; 
+            animation-fill-mode: forwards; 
+            border-top: 6px solid var(--accent-color);
+            /* This container will be centered by the body's justify-content: center */
+        }
+        
+        .front-page-container .description {
+            font-size: 1.1rem;
+            color: var(--text-darker);
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body.light-theme .front-page-container .description {
+             color: var(--text-darker);
+        }
+
+
+        .cta-button { 
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), var(--highlight-color));
+            color: #ffffff; 
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            font-family: var(--font-secondary);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            border: none;
+        }
+        body.light-theme .cta-button {
+            background: linear-gradient(135deg, var(--accent-color), var(--highlight-color));
+            color: #ffffff;
+        }
+
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.35); 
+            filter: brightness(1.1);
+            color: #0d0d0d;
+        }
+
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 0.75rem 0; /* Reduced padding */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+        body.light-theme header {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        nav .logo {
+            font-size: 1.6rem; /* Reduced font size */
+            font-weight: bold;
+            font-family: var(--font-secondary);
+            color: var(--text-color);
+        }
+        body.light-theme nav .logo { color: var(--text-color); }
+        nav .logo span {
+            color: var(--accent-color);
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.3rem; /* Reduced font size */
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        body.light-theme .theme-toggle { color: var(--text-color); }
+        .theme-toggle:hover {
+            color: var(--accent-color);
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-darker);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            width: 100%;
+            position: fixed; 
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: var(--footer-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.light-theme footer { background-color: var(--secondary-color); color: var(--text-darker); }
+
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* --- Scrollbar Styling (Optional, Webkit only) --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+        body.light-theme ::-webkit-scrollbar-track { background: #e0e0e0; }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--highlight-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 50px; /* Adjusted for smaller screens */
+                --footer-height: 4.5rem; 
+            }
+            body {
+                 padding-top: var(--header-height); 
+                 justify-content: flex-start; 
+                 padding-bottom: var(--footer-height); 
+            }
+            h1 { font-size: 2.5rem; }
+            .front-page-container { 
+                width: 90%; 
+                padding: 2rem 1.5rem; 
+                margin-top: 2rem; 
+                margin-bottom: 2rem; 
+            }
+            nav { padding: 0 1rem; }
+            footer { 
+                position: relative; /* Footer flows with content on smaller screens */ 
+                height: auto; /* Auto height for relative footer */
+                padding: 1.5rem 1rem; /* Keep padding consistent */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .front-page-container { 
+                padding: 1.5rem 1rem; 
+                margin-top: 1.5rem; 
+                margin-bottom: 1.5rem; 
+            }
+            .front-page-container .description { font-size: 1rem; }
+            .cta-button { font-size: 1rem; padding: 12px 30px; }
+            nav .logo { font-size: 1.4rem; /* Further reduced for smaller screens */ }
+            .theme-toggle { font-size: 1.2rem; /* Further reduced for smaller screens */ }
+        }
+  
